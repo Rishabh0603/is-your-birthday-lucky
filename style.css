@@ -1,0 +1,23 @@
+body{
+    background-color:rgb(241, 128, 241)
+}
+h1,h2,p{
+    text-align:center;
+    font-family:cursive;
+    font-size:larger;
+}  
+input{
+      height:2.5rem;
+      width:15rem;
+      text-align:center;
+}
+div{
+    text-align:center;
+    margin-top:1rem;
+}
+button{
+    width:5rem;
+    border-radius:2rem;
+    color:blueviolet;
+    background-color: peachpuff;
+}
