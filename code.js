@@ -1,34 +1,42 @@
-var date = document.querySelector("#date-id");
+var dates  = document.querySelector("#date-id");
 var lucky = document.querySelector("#lucky-id");
 var button = document.querySelector("#button-id");
 var answer = document.querySelector("#output-answer");
-function clickeventhandler()
-{
-    var dates = date.value;
+
+answer.style.display = "none";
+
+function adding_date(){
+    var sum =0;
+    var date = dates.value;
+    var new_date = date.replaceAll("-","");
+    for(var i =0;i < new_date.length;i++){
+    var ch = new_date.charAt(i);
+    var conversion = parseInt(ch);
+    sum = sum+conversion;
+    }
+    return sum;
+}
+
+
+function check_lucky(){
+    var add = adding_date();
     var lucky_number = lucky.value;
-    var sum = 0;
-    answer.style.display="none";
-    if(typeof(dates)!="undefined" && typeof(lucky_number)!="undefined"){
-    for(var i = 0;i<dates.length;i++){
-        if(dates.charAt(i)=='1'||dates.charAt(i)=='2'||dates.charAt(i)=='3'||dates.charAt(i)=='4'||dates.charAt(i)=='5'||dates.charAt(i)=='6'||dates.charAt(i)=='7'||dates.charAt(i)=='8'||dates.charAt(i)=='9'){
-            var ch = dates.charAt(i);
-        var convert = parseInt(ch);
-        sum+=convert;
-    } }
-    if(sum%lucky_number==0){
-        answer.style.display="block";
-    answer.innerText="this is a lucky number";
-}
+    if(add && lucky_number){
+   checkbirthday(add,lucky_number);}
     else{
-        answer.style.display="block";
-    answer.innerText="this is not a lucky number";
+        answer.style.display ="block";
+        answer.innerText = "Enter both the fields";}
+    
 }
-}
-else{
-    console.log("heelo");
-    answer.style.display="block";
-    answer.innerText="Please enter in both fields";
+function checkbirthday( add, lucky_number){
+    if(add % lucky_number === 0){
+        answer.style.display ="block";
+        answer.innerText = "It is a lucky number 🤩";
+    }
+    else{
+        answer.style.display ="block";
+    answer.innerText = "Your Birthday is not so lucky 😕";
 }
 }
 
-button.addEventListener("click", clickeventhandler);
+button.addEventListener("click",check_lucky);
