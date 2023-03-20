@@ -25,9 +25,11 @@ function check_lucky(){
    checkbirthday(add,lucky_number);}
     else{
         answer.style.display ="block";
-        answer.innerText = "Enter both the fields";}
+        answer.innerText = "Please enter both the fields!!";
+       }
     
 }
+
 function checkbirthday( add, lucky_number){
     if(add % lucky_number === 0){
         answer.style.display ="block";
