@@ -21,17 +21,17 @@ function adding_date(){
 function check_lucky(){
     var add = adding_date();
     var lucky_number = lucky.value;
-    if(add && lucky_number){
+    if(add && lucky_number!=0){
    checkbirthday(add,lucky_number);}
     else{
         answer.style.display ="block";
-        answer.innerText = "Please enter both the fields!!";
+        answer.innerText = "Please enter valid values in the fields!!";
        }
     
 }
 
 function checkbirthday( add, lucky_number){
-    if(add % lucky_number === 0){
+    if( add % lucky_number === 0){
         answer.style.display ="block";
         answer.innerText = "It is a lucky number 🤩";
     }
